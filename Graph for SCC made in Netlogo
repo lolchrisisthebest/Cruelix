@@ -1,0 +1,54 @@
+to setup
+  clear-all
+end
+to MakeGraph  
+  ;;Generation of Chart
+  ask patches [set pcolor white]
+;; writes up "Nitrogen/ Carbon"
+  ask patches with [pycor = 12]
+    [ if pxcor = -12
+        [ set plabel "Carbon = C" ]
+     ;;Writes the Carbon Ratio
+      if pxcor = 15
+        [ set plabel "Nitrogen =N " ] ]
+ ;;Writes the Nitrogen Ratio 
+  ask patches
+    [ ifelse pcolor mod 10 >= 4
+        [ set plabel-color black ]
+        [ set plabel-color white ] ]
+  reset-ticks                    ;;Changes The amount of "C/N: Ratio"
+   ask patches with [(pxcor = -1) and (pycor <= 11) and (pycor >= 11)]
+  [ set plabel "Carrot C/N: (11:1)"]
+  
+end
+
+to Cn
+  ask patches with [(pxcor = -1) and (pycor <= 7) and (pycor >= 7)]
+  [ set plabel "Zuccini C/N:(19:1 )"]
+  ask patches with [(pxcor = -1) and (pycor <= 9) and (pycor >= 9)]
+  [ set plabel "Tomato C/N:(9:1 )"]
+  ask patches with [(pxcor = -1) and (pycor <= 5) and (pycor >= 5)]
+  [ set plabel "Legumes (mixed) C/N:(12:1 )"]
+  ask patches with [(pxcor = -1) and (pycor <= 7) and (pycor >= 7)]
+  [ set plabel "Slurry Zuccini & Beans C/N:(11.5:1 )"]
+  ask patches with [(pxcor = -1) and (pycor <= 3) and (pycor >= 3)]
+  [ set plabel "Slurry Carrots & Tomato C/N:(19:1 )"]
+  ask patches with [(pxcor = 15) and (pycor <= 11) and (pycor >= 11)]
+  [ set plabel "Methane Production For Trial 1: 1900mL"]
+  ask patches with [(pxcor = 15) and (pycor <= 9)and (pycor >= 9)]
+  [ set plabel "Methane Production For Trial 2: 1930mL"]
+    ask patches with [(pxcor = 15) and (pycor <= 7)and (pycor >= 7)]
+  [ set plabel "Methane Production For Trial 3: 870mL"]
+  ask patches with [(pxcor = 15) and (pycor <= 5)and (pycor >= 5)]
+     [ set plabel "Methane Production For Trial 4: 1980mL"]
+  ask patches with [(pxcor = 15) and (pycor <= 3)and (pycor >= 3)]
+  [ set plabel "Methane For 1 Day of Food Waste: 12,134"]
+ask patches with [(pxcor = 15) and (pycor <= 3)and (pycor >= 3)]
+  [ set plabel "Methane For 1 Day of Food Waste: 12,134mL"]
+  ask patches with [(pxcor = 15) and (pycor <= 1)and (pycor >= 1)]
+  [ set plabel "Methane For 1 week of Food Waste: 84,938mL"]
+ask patches with [(pxcor = 15) and (pycor <= -1)and (pycor >= -1)]
+  [ set plabel "Methane For 1 Month of Food Waste: 376,154mL"]
+ask patches with [(pxcor = 15) and (pycor <= -3)and (pycor >= -3)]
+  [ set plabel "Methane For 1 Year of Food Waste: 4,428,910"]
+end
